@@ -11,19 +11,3 @@ export const Container = styled.div`
 
   background: #f7f7f7;
 `;
-
-export const Header = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 15px;
-`;
-
-export const BoxIntem = styled(Box)`
-  gap: 50px;
-`;
-
-export const InputBox = styled.div``;
-
-export const Search = styled(TextField)``;

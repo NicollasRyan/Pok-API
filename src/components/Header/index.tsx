@@ -1,13 +1,13 @@
 import pokeball from "../../assets/pokeball.png";
+import { TitleHeader, HederBox } from "./style";
 
 export function Header() {
   return (
-    <header>
-      <h1>
+    <HederBox>
+      <TitleHeader>
         <img src={pokeball} alt="" />
         Pokédex
-      </h1>
-      <button></button>
-    </header>
+      </TitleHeader>
+    </HederBox>
   );
 }
