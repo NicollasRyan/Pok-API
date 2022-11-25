@@ -17,3 +17,20 @@ export const TitleHeader = styled.h1`
     margin-right: 5px;
   }
 `;
+
+export const ButtonImage = styled.button`
+  display: flex;
+  align-items: center;
+
+  border: none;
+`;
+
+export const VectorImg = styled.img`
+  width: 10px;
+  height: 17px;
+`;
+
+export const HastagImg = styled.img`
+  width: 10px;
+  height: 10px;
+`;
