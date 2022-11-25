@@ -1,14 +1,12 @@
-import { Box, Grid, TextField } from "@mui/material";
 import { Pokemons } from "../Pokemons";
+import { Search } from "../Search";
 
 export function Dashbord() {
   return (
     <div>
-      <div>
-        <TextField variant="outlined" label="Buscar Pokemon" type="text" />
+      <Search />
 
-        <Pokemons />
-      </div>
+      <Pokemons />
     </div>
   );
 }
