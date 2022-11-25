@@ -1,6 +1,7 @@
 import { Grid, Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { GridContainer } from "./style";
 
 interface PokemonProps {
   name?: string;
@@ -17,7 +18,7 @@ export function Pokemons() {
   }, []);
 
   return (
-    <Grid container spacing={3}>
+    <GridContainer container spacing={3}>
       <Grid item xs={4}>
         <Box>
           <p>{pokemon.name}</p>
@@ -38,6 +39,6 @@ export function Pokemons() {
       <Grid item xs={4}>
         6
       </Grid>
-    </Grid>
+    </GridContainer>
   );
 }
