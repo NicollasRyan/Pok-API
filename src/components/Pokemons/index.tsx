@@ -4,12 +4,15 @@ import axios from "axios";
 import { CardPokemon } from "../CardPokemon/index";
 import { GridContainer } from "./style";
 import { api } from "../../services/api";
+import { FlatList } from "react-native";
 
-type PokemonType = {
-  type: string;
+export type PokemonType = {
+  type: {
+    name: string;
+  };
 };
 
-interface PokemonProps {
+export interface PokemonProps {
   name: string;
   id: number;
   url: string;
@@ -59,13 +62,13 @@ export function Pokemons() {
 
   return (
     <GridContainer container spacing={3}>
-      {pokemons.map((pokemon) => {
-        return (
-          <Grid item xs={3}>
-            <CardPokemon name={pokemon.name} />
-          </Grid>
-        );
-      })}
+      <Grid item xs={3}>
+        <FlatList
+          data={pokemons}
+          keyExtractor={(pokemon) => pokemon.id.toString()}
+          renderItem={({ item: pokemon }) => <CardPokemon data={pokemon} />}
+        />
+      </Grid>
     </GridContainer>
   );
 }
