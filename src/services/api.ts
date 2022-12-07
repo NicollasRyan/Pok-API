@@ -11,7 +11,3 @@ export const api = axios.create({
 //     var response = axios
 //       .all(endpoints.map((endpoint) => axios.get(endpoint)))
 //       .then((res) => setPokemons(res));
-// api
-//   .get(`/pokemon?limit=10&offset=0`)
-//   .then((response) => setPokemon(response.data.results))
-//   .catch((err) => console.log(err));
