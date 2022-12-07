@@ -5,8 +5,7 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
-
-import { TouchableOpacityProps } from "react-native";
+import { CardConainer, CardContentText, CardText, IdPokemon } from "./style";
 
 interface PokemonProps {
   name: string;
@@ -16,16 +15,14 @@ interface PokemonProps {
 
 export function CardPokemon({ name, id, image }: PokemonProps) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <CardConainer sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        #{id}
+        <IdPokemon>#{id}</IdPokemon>
         <CardMedia component="img" image={image} alt={name} />
-        <CardContent>
-          <Typography variant="h5" component="div" key={id}>
-            {name}
-          </Typography>
-        </CardContent>
+        <CardContentText>
+          <CardText>{name}</CardText>
+        </CardContentText>
       </CardActionArea>
-    </Card>
+    </CardConainer>
   );
 }
