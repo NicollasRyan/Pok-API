@@ -4,21 +4,30 @@ import { useEffect, useState } from "react";
 import { CardPokemon } from "../CardPokemon/index";
 import { GridContainer } from "./style";
 import { api } from "../../services/api";
-import { FlatList } from "react-native";
 import axios from "axios";
-
-export type PokemonType = {
-  type: {
-    name: string;
-  };
-};
 
 export type Sprites = {
   front_default: string;
 };
 
+type TypeName =
+  | "grass"
+  | "fire"
+  | "water"
+  | "poison"
+  | "normal"
+  | "bug"
+  | "flying"
+  | "eletric"
+  | "ground";
+
+type TypesProps = {
+  type: { name: TypeName };
+};
+
 export interface PokemonProps {
   data: {
+    types: TypesProps[];
     sprites: Sprites;
     name: string;
     id: number;
@@ -43,7 +52,6 @@ export function Pokemons() {
     for (var i = 1; i < 13; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
     }
-    console.log(endpoints);
     var response = axios
       .all(endpoints.map((endpoint) => api.get(endpoint)))
       .then((res: any) => setPokemons(res));
@@ -58,6 +66,7 @@ export function Pokemons() {
             name={pokemon.data.name}
             id={pokemon.data.id}
             image={pokemon.data.sprites.front_default}
+            type={pokemon.data.types[0].type.name}
           />
         </Grid>
       ))}

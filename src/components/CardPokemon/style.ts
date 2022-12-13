@@ -1,13 +1,32 @@
-import styled from "@emotion/styled";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
+import styled, { css } from "styled-components";
 
-export const CardConainer = styled(Card)`
-  border: 1px solid green;
-  border-radius: 10px;
+type TypeName =
+  | "grass"
+  | "fire"
+  | "water"
+  | "poison"
+  | "normal"
+  | "bug"
+  | "flying"
+  | "eletric"
+  | "ground";
+
+type TypeProps = {
+  type: TypeName;
+};
+
+export const CardConainer = styled(Card)<TypeProps>`
+  ${({ theme, type }) => css`
+    border: 1px solid ${theme.colors.backgroundCard[type]};
+    border-radius: 10px;
+  `}
 `;
 
-export const CardContentText = styled(CardContent)`
-  background-color: green;
+export const CardContentText = styled(CardContent)<TypeProps>`
+  ${({ theme, type }) => css`
+    background-color: ${theme.colors.backgroundCard[type]};
+  `}
 `;
 
 export const CardText = styled.p`
@@ -20,14 +39,16 @@ export const CardText = styled.p`
   color: #ffffff;
 `;
 
-export const IdPokemon = styled.p`
-  padding: 8px;
+export const IdPokemon = styled.p<TypeProps>`
+  ${({ theme, type }) => css`
+    padding: 8px;
 
-  font-family: "Poppins";
-  font-weight: 400;
-  font-size: 20px;
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 20px;
 
-  text-align: right;
+    text-align: right;
 
-  color: green;
+    color: ${theme.colors.backgroundCard[type]};
+  `}
 `;
