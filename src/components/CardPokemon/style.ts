@@ -16,16 +16,18 @@ type TypeProps = {
   type: TypeName;
 };
 
-export const CardConainer = styled(Card)<TypeProps>`
+export const CardConainer = styled.div<TypeProps>`
   ${({ theme, type }) => css`
+    border-radius: 20px;
+    max-width: 325px;
     border: 1px solid ${theme.colors.backgroundCard[type]};
-    border-radius: 10px;
   `}
 `;
 
 export const CardContentText = styled(CardContent)<TypeProps>`
   ${({ theme, type }) => css`
     background-color: ${theme.colors.backgroundCard[type]};
+    border-radius: 0 0 20px 20px;
   `}
 `;
 

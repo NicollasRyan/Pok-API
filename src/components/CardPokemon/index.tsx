@@ -18,10 +18,6 @@ type TypeName =
   | "eletric"
   | "ground";
 
-type TypeProps = {
-  type: TypeName;
-};
-
 interface PokemonProps {
   name: string;
   id: number;
@@ -31,7 +27,7 @@ interface PokemonProps {
 
 export function CardPokemon({ name, id, image, type }: PokemonProps) {
   return (
-    <CardConainer type={type} sx={{ maxWidth: 345 }}>
+    <CardConainer type={type}>
       <CardActionArea>
         <IdPokemon type={type}>#{id}</IdPokemon>
         <CardMedia component="img" image={image} alt={name} />
