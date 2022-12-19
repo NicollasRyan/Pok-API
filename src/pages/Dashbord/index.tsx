@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { api } from "../../services/api";
 import theme from "../../styles/theme";
-import { CardPokemon } from "../CardPokemon";
-import { Search } from "../Search";
+import { CardPokemon } from "../../components/CardPokemon";
+import { Search } from "../../components/Search";
 import { GridContainer } from "./style";
 
 export type Sprites = {

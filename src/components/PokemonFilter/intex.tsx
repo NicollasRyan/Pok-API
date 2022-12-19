@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { PokemonProps } from "../Dashbord";
+import { PokemonProps } from "../../pages/Dashbord";
 
 export const PokemonFilter = (name: PokemonProps) => {
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
