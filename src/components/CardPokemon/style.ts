@@ -16,9 +16,9 @@ type TypeProps = {
   type: TypeName;
 };
 
-export const CardConainer = styled.div<TypeProps>`
+export const CardConainer = styled(Card)<TypeProps>`
   ${({ theme, type }) => css`
-    border-radius: 20px;
+    border-radius: 8px;
     max-width: 325px;
     border: 1px solid ${theme.colors.backgroundCard[type]};
   `}
@@ -27,7 +27,6 @@ export const CardConainer = styled.div<TypeProps>`
 export const CardContentText = styled(CardContent)<TypeProps>`
   ${({ theme, type }) => css`
     background-color: ${theme.colors.backgroundCard[type]};
-    border-radius: 0 0 20px 20px;
   `}
 `;
 

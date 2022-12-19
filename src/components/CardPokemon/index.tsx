@@ -30,7 +30,7 @@ export function CardPokemon({ name, id, image, type }: PokemonProps) {
     <CardConainer type={type}>
       <CardActionArea>
         <IdPokemon type={type}>#{id}</IdPokemon>
-        <CardMedia component="img" image={image} alt={name} />
+        <CardMedia component="img" height="250" image={image} alt={name} />
         <CardContentText type={type}>
           <CardText>{name}</CardText>
         </CardContentText>

@@ -1,9 +1,18 @@
 import { InputSearch, BoxInput } from "./style";
 
-export function Search() {
+interface PokemonProps {
+  pokemonFilter: (name: any) => void;
+}
+
+export function Search({ pokemonFilter }: PokemonProps) {
   return (
     <BoxInput>
-      <InputSearch variant="outlined" label="Buscar Pokemon" type="text" />
+      <InputSearch
+        onChange={(e) => pokemonFilter(e.target.value)}
+        variant="outlined"
+        label="Buscar Pokemon"
+        type="text"
+      />
     </BoxInput>
   );
 }
