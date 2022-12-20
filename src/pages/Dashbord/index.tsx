@@ -7,6 +7,7 @@ import theme from "../../styles/theme";
 import { CardPokemon } from "../../components/CardPokemon";
 import { Search } from "../../components/Search";
 import { GridContainer } from "./style";
+import { Link } from "react-router-dom";
 
 export type Sprites = {
   front_default: string;
@@ -78,6 +79,7 @@ export function Dashbord() {
   return (
     <ThemeProvider theme={theme}>
       <Search pokemonFilter={PokemonFilter} />
+      <Link to={`/pokemon`}>Pokemon</Link>
 
       <GridContainer container spacing={3}>
         {pokemons.map((pokemon, key) => (
