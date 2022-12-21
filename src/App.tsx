@@ -11,7 +11,7 @@ export default function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Dashbord />} />
-        <Route path="/pokemon" element={<Pokemon />} />
+        <Route path="/pokemon/:id" element={<Pokemon />} />
       </Routes>
       <GlobalStyle />
     </Router>

@@ -6,8 +6,8 @@ import { api } from "../../services/api";
 import theme from "../../styles/theme";
 import { CardPokemon } from "../../components/CardPokemon";
 import { Search } from "../../components/Search";
-import { GridContainer } from "./style";
-import { Link } from "react-router-dom";
+import { GridContainer, LinkGrid } from "./style";
+import { Link, redirect } from "react-router-dom";
 
 export type Sprites = {
   front_default: string;
@@ -79,17 +79,19 @@ export function Dashbord() {
   return (
     <ThemeProvider theme={theme}>
       <Search pokemonFilter={PokemonFilter} />
-      <Link to={`/pokemon`}>Pokemon</Link>
+      <Link to={`/pokemon/:id`}>Pokemon</Link>
 
       <GridContainer container spacing={3}>
         {pokemons.map((pokemon, key) => (
           <Grid item xs={3} key={key}>
-            <CardPokemon
-              name={pokemon.data.name}
-              id={pokemon.data.id}
-              image={pokemon.data.sprites.front_default}
-              type={pokemon.data.types[0].type.name}
-            />
+            <LinkGrid to={`/pokemon/${pokemon.data.id}`}>
+              <CardPokemon
+                name={pokemon.data.name}
+                id={pokemon.data.id}
+                image={pokemon.data.sprites.front_default}
+                type={pokemon.data.types[0].type.name}
+              />
+            </LinkGrid>
           </Grid>
         ))}
       </GridContainer>

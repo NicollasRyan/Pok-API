@@ -4,7 +4,10 @@ import {
   CardMedia,
   Typography,
   CardActionArea,
+  CardActions,
+  Button,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 import { CardConainer, CardContentText, CardText, IdPokemon } from "./style";
 
 type TypeName =
