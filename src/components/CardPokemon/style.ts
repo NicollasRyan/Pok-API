@@ -1,15 +1,24 @@
 import { Card, CardContent } from "@mui/material";
 import styled, { css } from "styled-components";
 
-type TypeName =
+export type TypeName =
   | "grass"
   | "fire"
+  | "ice"
   | "water"
+  | "dark"
   | "poison"
+  | "psychic"
   | "normal"
+  | "steel"
   | "bug"
   | "flying"
-  | "eletric"
+  | "fairy"
+  | "electric"
+  | "fighting"
+  | "dragon"
+  | "rock"
+  | "ghost"
   | "ground";
 
 type TypeProps = {

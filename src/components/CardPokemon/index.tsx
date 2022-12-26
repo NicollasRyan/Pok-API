@@ -8,18 +8,13 @@ import {
   Button,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-import { CardConainer, CardContentText, CardText, IdPokemon } from "./style";
-
-type TypeName =
-  | "grass"
-  | "fire"
-  | "water"
-  | "poison"
-  | "normal"
-  | "bug"
-  | "flying"
-  | "eletric"
-  | "ground";
+import {
+  CardConainer,
+  CardContentText,
+  CardText,
+  IdPokemon,
+  TypeName,
+} from "./style";
 
 interface PokemonProps {
   name: string;
