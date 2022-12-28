@@ -7,6 +7,7 @@ import { Search } from "../../components/Search";
 import { GridContainer, LinkGrid } from "./style";
 import { Container } from "@mui/system";
 import { TypeName } from "../../components/CardPokemon/style";
+import { Header } from "../../components/Header";
 
 export type Sprites = {
   front_default: string;
@@ -66,6 +67,7 @@ export function Dashbord() {
 
   return (
     <>
+      <Header />
       <Search pokemonFilter={PokemonFilter} />
 
       <Container>

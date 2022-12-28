@@ -11,7 +11,6 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<Dashbord />} />
           <Route path="/pokemon/:pokemonId" element={<Pokemon />} />

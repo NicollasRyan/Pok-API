@@ -5,7 +5,6 @@ export const HederBox = styled.header`
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   box-shadow: 60px black;
 `;
@@ -27,12 +26,9 @@ export const ButtonImage = styled.button`
   border: none;
 `;
 
-export const VectorImg = styled.img`
-  width: 10px;
-  height: 17px;
-`;
+export const PokeBall = styled.img`
+  width: 25px;
+  height: 25px;
 
-export const HastagImg = styled.img`
-  width: 10px;
-  height: 10px;
+  margin-right: 10px;
 `;
