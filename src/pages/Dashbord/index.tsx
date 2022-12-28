@@ -1,13 +1,10 @@
 import { Grid } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
 import { api } from "../../services/api";
-import theme from "../../styles/theme";
 import { CardPokemon } from "../../components/CardPokemon";
 import { Search } from "../../components/Search";
 import { GridContainer, LinkGrid } from "./style";
-import { Link, redirect } from "react-router-dom";
 import { Container } from "@mui/system";
 import { TypeName } from "../../components/CardPokemon/style";
 
@@ -68,7 +65,7 @@ export function Dashbord() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <Search pokemonFilter={PokemonFilter} />
 
       <Container>
@@ -87,6 +84,6 @@ export function Dashbord() {
           ))}
         </GridContainer>
       </Container>
-    </ThemeProvider>
+    </>
   );
 }

@@ -1,13 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  CardActionArea,
-  CardActions,
-  Button,
-} from "@mui/material";
-import { Link } from "react-router-dom";
+import { CardMedia, CardActionArea } from "@mui/material";
 import {
   CardConainer,
   CardContentText,
