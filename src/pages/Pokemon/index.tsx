@@ -1,40 +1,32 @@
-import { Container, Typography } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Alert } from "react-native";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { api } from "../../services/api";
 import {
-  About,
-  AboutPokemon,
+  Attributes,
+  AttributeValue,
+  BaseStats,
+  BaseStatsPokemon,
   BoxImg,
   ContainerPokemon,
+  ContainerStates,
   Content,
+  ContentBar,
   Header,
-  Height,
-  InfoPokemon,
-  Moves,
-  PDiv,
-  PMove,
-  PokeBallImg,
   PokemonContentType,
   PokemonImg,
   PokemonType,
-  PWight,
-  TextMove,
+  PorgressBar,
+  StatsBar,
   TypeText,
   Vector,
-  Weight,
-  WeightText,
 } from "./style";
 import vector from "../../assets/vector.png";
-import ballpoke from "../../assets/ballpoke.png";
-import weight from "../../assets/weight.png";
-import height from "../../assets/height.png";
 
 type Stats = {
-  base_stat: 62;
+  base_stat: number;
   stat: {
     name: string;
   };
@@ -119,7 +111,7 @@ export function Pokemon() {
           height,
         });
       } catch (err) {
-        Alert.alert("ops correu algum error");
+        console.log("ops correu algum error");
       } finally {
         setLoad(false);
       }
@@ -128,12 +120,14 @@ export function Pokemon() {
     getPokemonDetail();
   }, []);
 
+  const max = (base_stat: number) => ((base_stat - 0) * 100) / (100 - 0);
+
   return (
     <>
       {load ? (
         <Typography style={{ marginTop: 200 }}>Carregando...</Typography>
       ) : (
-        <Content type={pokemon.types[0].type.name}>
+        <Content type={pokemon.types[0].type.name} key={pokemon.id}>
           <Header>
             <h1>
               <Link to="/">
@@ -153,48 +147,35 @@ export function Pokemon() {
               />
             </BoxImg>
             <PokemonContentType>
-              {pokemon.types.map((pokemonTypes) => (
-                <PokemonType type={pokemonTypes.type.name}>
-                  <TypeText key={pokemonTypes.type.name}>
-                    {pokemonTypes.type.name}
-                  </TypeText>
+              {pokemon.types.map(({ type }) => (
+                <PokemonType type={type.name}>
+                  <TypeText key={type.name}>{type.name}</TypeText>
                 </PokemonType>
               ))}
             </PokemonContentType>
-            <AboutPokemon>
-              <About type={pokemon.types[0].type.name}>About</About>
-            </AboutPokemon>
-            <InfoPokemon>
-              <Weight>
-                <WeightText>
-                  <img src={weight} alt="" />
-                  {pokemon.weight}
-                  <PDiv>
-                    <PWight>Weight</PWight>
-                  </PDiv>
-                </WeightText>
-              </Weight>
+            <ContainerStates>
+              <BaseStatsPokemon>
+                <BaseStats type={pokemon.types[0].type.name}>
+                  Base Stats
+                </BaseStats>
+              </BaseStatsPokemon>
 
-              <Height>
-                <WeightText>
-                  <img src={height} alt="" />
-                  {pokemon.height}
-                  <PDiv>
-                    <PWight>Height</PWight>
-                  </PDiv>
-                </WeightText>
-              </Height>
-
-              <Moves>
-                <WeightText>
-                  <TextMove>{pokemon.moves[0].move.name}</TextMove>
-                  <p>{pokemon.moves[1].move.name}</p>
-                  <PDiv>
-                    <PMove>Moves</PMove>
-                  </PDiv>
-                </WeightText>
-              </Moves>
-            </InfoPokemon>
+              {pokemon.stats.map((attribute) => (
+                <StatsBar key={attribute.stat.name}>
+                  <Attributes type={pokemon.types[0].type.name}>
+                    {attribute.stat.name}
+                  </Attributes>
+                  <AttributeValue>{attribute.base_stat}</AttributeValue>
+                  <ContentBar>
+                    <PorgressBar
+                      variant="determinate"
+                      type={pokemon.types[0].type.name}
+                      value={attribute.base_stat}
+                    />
+                  </ContentBar>
+                </StatsBar>
+              ))}
+            </ContainerStates>
           </ContainerPokemon>
         </Content>
       )}

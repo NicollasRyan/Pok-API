@@ -1,3 +1,5 @@
+import { LinearProgress } from "@mui/material";
+import { Container } from "@mui/system";
 import styled, { css } from "styled-components";
 import { TypeName } from "../../components/CardPokemon/style";
 
@@ -18,14 +20,14 @@ export const Header = styled.header`
 export const Content = styled.div<TypeProps>`
   ${({ theme, type }) => css`
     background-color: ${theme.colors.backgroundCard[type]};
-    height: 1300px;
+    height: 1000px;
   `}
 `;
 
 export const ContainerPokemon = styled.div`
-  margin: 250px 10px 0 10px;
+  margin: 250px 10px 10px 10px;
   border-radius: 8px;
-  height: 940px;
+  height: 650px;
   background-color: white;
 `;
 
@@ -81,14 +83,14 @@ export const PokemonImg = styled.img`
   margin-top: -220px;
 `;
 
-export const AboutPokemon = styled.div`
+export const BaseStatsPokemon = styled.div`
   display: flex;
   justify-content: center;
 
   margin-top: 20px;
 `;
 
-export const About = styled.p<TypeProps>`
+export const BaseStats = styled.p<TypeProps>`
   ${({ theme, type }) => css`
     color: ${theme.colors.backgroundCard[type]};
     font-family: "Poppins";
@@ -97,89 +99,40 @@ export const About = styled.p<TypeProps>`
   `}
 `;
 
-export const InfoPokemon = styled.div`
+export const ContainerStates = styled(Container)``;
+
+export const StatsBar = styled.div`
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-
-  margin-top: 45px;
-`;
-
-export const Weight = styled.div`
-  padding: 30px 50px 30px 50px;
-
-  display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-direction: column;
 
-  img {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-  }
+  width: 100%;
+  padding: 10px 20px;
 `;
 
-export const WeightText = styled.div`
-  font-family: "Poopins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 16px;
+export const Attributes = styled.p<TypeProps>`
+  ${({ theme, type }) => css`
+    color: ${theme.colors.backgroundCard[type]};
+    font-family: "Poppins";
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 25px;
+  `}
 `;
 
-export const Height = styled.div`
-  padding: 30px 50px 30px 50px;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border-left: 0.5px solid #e0e0e0;
-  border-right: 0.5px solid #e0e0e0;
-
-  img {
-    margin-right: 10px;
-    width: 10px;
-    height: 20px;
-  }
-`;
-
-export const TextMove = styled.p`
-  margin-bottom: 5px;
-`;
-
-export const Moves = styled.div`
-  padding: 30px 50px 30px 50px;
-
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`;
-
-export const PWight = styled.p`
-  margin-top: 15px;
-
-  color: #666666;
-
+export const AttributeValue = styled.p`
   font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
   font-size: 15px;
+  font-weight: 700;
+  margin-left: 15px;
 `;
 
-export const PDiv = styled.div`
-  display: flex;
-  justify-content: center;
-
-  margin-top: 15px;
+export const ContentBar = styled.div`
+  margin-left: 15px;
 `;
 
-export const PMove = styled.p`
-  margin-bottom: 10px;
-
-  color: #666666;
-
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 15px;
+export const PorgressBar = styled(LinearProgress)<TypeProps>`
+  ${({ theme, type }) => css`
+    color: ${theme.colors.backgroundCard[type]};
+  `}
 `;
