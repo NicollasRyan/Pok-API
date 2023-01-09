@@ -8,7 +8,7 @@ export function Search({ pokemonFilter }: PokemonProps) {
   return (
     <BoxInput>
       <InputSearch
-        onChange={(e) => pokemonFilter(e.target.value.toLowerCase())}
+        onChange={(e) => pokemonFilter(e.target.value.toLocaleLowerCase())}
         variant="outlined"
         label="Buscar Pokemon"
         type="text"

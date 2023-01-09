@@ -19,13 +19,6 @@ export const TitleHeader = styled.h1`
   }
 `;
 
-export const ButtonImage = styled.button`
-  display: flex;
-  align-items: center;
-
-  border: none;
-`;
-
 export const PokeBall = styled.img`
   width: 25px;
   height: 25px;

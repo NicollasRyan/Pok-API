@@ -56,7 +56,6 @@ export const IdPokemon = styled.p<TypeProps>`
     font-family: "Poppins";
     font-weight: 400;
     font-size: 20px;
-
     text-align: right;
 
     color: ${theme.colors.backgroundCard[type]};
