@@ -8,7 +8,7 @@ export function Search({ pokemonFilter }: PokemonProps) {
   return (
     <BoxInput>
       <InputSearch
-        onChange={(e) => pokemonFilter(e.target.value)}
+        onChange={(e) => pokemonFilter(e.target.value.toLowerCase())}
         variant="outlined"
         label="Buscar Pokemon"
         type="text"
