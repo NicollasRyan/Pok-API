@@ -17,7 +17,11 @@ export const Header = styled.header`
   color: white;
 `;
 
-export const Content = styled.div<TypeProps>`
+export const Vector = styled.img`
+  margin-right: 10px;
+`;
+
+export const PokemonBody = styled.body<TypeProps>`
   ${({ theme, type }) => css`
     background-color: ${theme.colors.backgroundCard[type]};
     height: 1000px;
@@ -25,9 +29,8 @@ export const Content = styled.div<TypeProps>`
 `;
 
 export const ContainerPokemon = styled.div`
-  margin: 250px 10px 10px 10px;
-  border-radius: 8px;
-  height: 650px;
+  margin-top: 250px;
+  height: 651.5px;
   background-color: white;
 `;
 
@@ -51,15 +54,6 @@ export const PokemonType = styled.div<TypeProps>`
     justify-items: center;
   `}
 `;
-export const PokeBallImg = styled.img`
-  position: absolute;
-  width: 550px;
-  height: 550px;
-  left: 150vh;
-  top: 8px;
-
-  /* opacity: 0.1; */
-`;
 
 export const TypeText = styled.p`
   font-family: "Poppins";
@@ -70,8 +64,14 @@ export const TypeText = styled.p`
   text-transform: capitalize;
 `;
 
-export const Vector = styled.img`
-  margin-right: 10px;
+export const PokeBallImg = styled.img`
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  left: 150vh;
+  top: 8px;
+
+  /* opacity: 0.1; */
 `;
 
 export const BoxImg = styled.div`
@@ -99,12 +99,9 @@ export const BaseStats = styled.p<TypeProps>`
   `}
 `;
 
-export const ContainerStates = styled(Container)``;
-
 export const StatsBar = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
 
   width: 100%;
   padding: 10px 20px;

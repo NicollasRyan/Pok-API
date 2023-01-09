@@ -1,4 +1,4 @@
-import { LinearProgress, Typography } from "@mui/material";
+import { Container, LinearProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -11,10 +11,9 @@ import {
   BaseStatsPokemon,
   BoxImg,
   ContainerPokemon,
-  ContainerStates,
-  Content,
   ContentBar,
   Header,
+  PokemonBody,
   PokemonContentType,
   PokemonImg,
   PokemonType,
@@ -127,7 +126,7 @@ export function Pokemon() {
       {load ? (
         <Typography style={{ marginTop: 200 }}>Carregando...</Typography>
       ) : (
-        <Content type={pokemon.types[0].type.name} key={pokemon.id}>
+        <PokemonBody type={pokemon.types[0].type.name} key={pokemon.id}>
           <Header>
             <h1>
               <Link to="/">
@@ -153,7 +152,7 @@ export function Pokemon() {
                 </PokemonType>
               ))}
             </PokemonContentType>
-            <ContainerStates>
+            <Container>
               <BaseStatsPokemon>
                 <BaseStats type={pokemon.types[0].type.name}>
                   Base Stats
@@ -175,9 +174,9 @@ export function Pokemon() {
                   </ContentBar>
                 </StatsBar>
               ))}
-            </ContainerStates>
+            </Container>
           </ContainerPokemon>
-        </Content>
+        </PokemonBody>
       )}
     </>
   );
