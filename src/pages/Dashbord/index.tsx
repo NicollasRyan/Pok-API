@@ -8,6 +8,7 @@ import { GridContainer, LinkGrid } from "./style";
 import { Container } from "@mui/system";
 import { TypeName } from "../../components/CardPokemon/style";
 import { Header } from "../../components/Header";
+import { Skeletons } from "../../components/Skeletons";
 
 export type Sprites = {
   front_default: string;
@@ -43,7 +44,7 @@ export function Dashbord() {
 
   const getPokemon = () => {
     var endpoints = [];
-    for (var i = 1; i < 100; i++) {
+    for (var i = 1; i < 500; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
     }
     var response = axios
@@ -72,18 +73,22 @@ export function Dashbord() {
 
       <Container>
         <GridContainer container spacing={3}>
-          {pokemons.map((pokemon, key) => (
-            <Grid item xs={3} key={key}>
-              <LinkGrid to={`/pokemon/${pokemon.data.id}`}>
-                <CardPokemon
-                  name={pokemon.data.name}
-                  id={pokemon.data.id}
-                  image={pokemon.data.sprites.front_default}
-                  type={pokemon.data.types[0].type.name}
-                />
-              </LinkGrid>
-            </Grid>
-          ))}
+          {pokemons.length === 0 ? (
+            <Skeletons />
+          ) : (
+            pokemons.map((pokemon, key) => (
+              <Grid item xs={3} key={key}>
+                <LinkGrid to={`/pokemon/${pokemon.data.id}`}>
+                  <CardPokemon
+                    name={pokemon.data.name}
+                    id={pokemon.data.id}
+                    image={pokemon.data.sprites.front_default}
+                    type={pokemon.data.types[0].type.name}
+                  />
+                </LinkGrid>
+              </Grid>
+            ))
+          )}
         </GridContainer>
       </Container>
     </>
