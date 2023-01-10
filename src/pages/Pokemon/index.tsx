@@ -5,6 +5,8 @@ import { useParams } from "react-router-dom";
 import { useTheme } from "styled-components";
 import { api } from "../../services/api";
 import {
+  About,
+  AboutPokemon,
   Attributes,
   AttributeValue,
   BaseStats,
@@ -13,16 +15,26 @@ import {
   ContainerPokemon,
   ContentBar,
   Header,
-  PokemonBody,
+  Height,
+  InfoPokemon,
+  Moves,
+  PDiv,
+  PMove,
   PokemonContentType,
   PokemonImg,
   PokemonType,
   PorgressBar,
+  PWight,
   StatsBar,
+  TextMove,
   TypeText,
   Vector,
+  Weight,
+  WeightText,
 } from "./style";
 import vector from "../../assets/vector.png";
+import weight from "../../assets/weight.png";
+import height from "../../assets/height.png";
 
 type Stats = {
   base_stat: number;
@@ -126,8 +138,8 @@ export function Pokemon() {
       {load ? (
         <Typography style={{ marginTop: 200 }}>Carregando...</Typography>
       ) : (
-        <PokemonBody type={pokemon.types[0].type.name} key={pokemon.id}>
-          <Header>
+        <body key={pokemon.id}>
+          <Header type={pokemon.types[0].type.name}>
             <h1>
               <Link to="/">
                 <Vector src={vector} alt="" />
@@ -152,6 +164,42 @@ export function Pokemon() {
                 </PokemonType>
               ))}
             </PokemonContentType>
+            <AboutPokemon>
+              <About type={pokemon.types[0].type.name}>About</About>
+            </AboutPokemon>
+
+            <InfoPokemon>
+              <Weight>
+                <WeightText>
+                  <img src={weight} alt="" />
+                  {pokemon.weight}
+                  <PDiv>
+                    <PWight>Weight</PWight>
+                  </PDiv>
+                </WeightText>
+              </Weight>
+
+              <Height>
+                <WeightText>
+                  <img src={height} alt="" />
+                  {pokemon.height}
+                  <PDiv>
+                    <PWight>Height</PWight>
+                  </PDiv>
+                </WeightText>
+              </Height>
+
+              <Moves>
+                <WeightText>
+                  <TextMove>{pokemon.moves[0].move.name}</TextMove>
+                  <p>{pokemon.moves[1].move.name}</p>
+                  <PDiv>
+                    <PMove>Moves</PMove>
+                  </PDiv>
+                </WeightText>
+              </Moves>
+            </InfoPokemon>
+
             <Container>
               <BaseStatsPokemon>
                 <BaseStats type={pokemon.types[0].type.name}>
@@ -176,7 +224,7 @@ export function Pokemon() {
               ))}
             </Container>
           </ContainerPokemon>
-        </PokemonBody>
+        </body>
       )}
     </>
   );
