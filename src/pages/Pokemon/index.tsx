@@ -1,4 +1,4 @@
-import { Container, LinearProgress, Typography } from "@mui/material";
+import { Container, Grid, LinearProgress, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -127,18 +127,19 @@ export function Pokemon() {
         setLoad(false);
       }
     }
+    console.log(setPokemon);
 
     getPokemonDetail();
   }, []);
 
-  const max = (base_stat: number) => ((base_stat - 0) * 100) / (100 - 0);
+  const max = (base_stat: number) => ((base_stat - 0) * 100) / (200 - 0);
 
   return (
     <>
       {load ? (
         <Typography style={{ marginTop: 200 }}>Carregando...</Typography>
       ) : (
-        <body key={pokemon.id}>
+        <>
           <Header type={pokemon.types[0].type.name}>
             <h1>
               <Link to="/">
@@ -149,7 +150,7 @@ export function Pokemon() {
             </h1>
             <strong>#{pokemon.id}</strong>
           </Header>
-          {/* <PokeBallImg src={ballpoke} /> */}
+
           <ContainerPokemon>
             <BoxImg>
               <PokemonImg
@@ -209,22 +210,30 @@ export function Pokemon() {
 
               {pokemon.stats.map((attribute) => (
                 <StatsBar key={attribute.stat.name}>
-                  <Attributes type={pokemon.types[0].type.name}>
-                    {attribute.stat.name}
-                  </Attributes>
-                  <AttributeValue>{attribute.base_stat}</AttributeValue>
-                  <ContentBar>
-                    <PorgressBar
-                      variant="determinate"
-                      type={pokemon.types[0].type.name}
-                      value={attribute.base_stat}
-                    />
-                  </ContentBar>
+                  <Grid container>
+                    <Grid item md={2}>
+                      <Attributes type={pokemon.types[0].type.name}>
+                        {attribute.stat.name}
+                      </Attributes>
+                    </Grid>
+                    <Grid item md={1}>
+                      <AttributeValue>{attribute.base_stat}</AttributeValue>
+                    </Grid>
+                    <Grid item md={9} display="flex" alignItems="center">
+                      <ContentBar>
+                        <PorgressBar
+                          variant="determinate"
+                          type={pokemon.types[0].type.name}
+                          value={max(attribute.base_stat)}
+                        />
+                      </ContentBar>
+                    </Grid>
+                  </Grid>
                 </StatsBar>
               ))}
             </Container>
           </ContainerPokemon>
-        </body>
+        </>
       )}
     </>
   );

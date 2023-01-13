@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
-import { Header } from "./components/Header/index";
 import { Dashbord } from "./pages/Dashbord";
 import { Pokemon } from "./pages/Pokemon";
 import { GlobalStyle } from "./styles/global";

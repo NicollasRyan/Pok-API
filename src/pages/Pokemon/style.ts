@@ -191,12 +191,14 @@ export const StatsBar = styled.div`
 
   width: 100%;
   padding: 10px 20px;
+  margin-top: 50px;
 `;
 
 export const Attributes = styled.p<TypeProps>`
   ${({ theme, type }) => css`
     color: ${theme.colors.backgroundCard[type]};
     font-family: "Poppins";
+    text-align: right;
     font-size: 15px;
     font-weight: 700;
     line-height: 25px;
@@ -205,6 +207,7 @@ export const Attributes = styled.p<TypeProps>`
 
 export const AttributeValue = styled.p`
   font-family: "Poppins";
+  text-align: right;
   font-size: 15px;
   font-weight: 700;
   margin-left: 15px;
@@ -212,6 +215,7 @@ export const AttributeValue = styled.p`
 
 export const ContentBar = styled.div`
   margin-left: 15px;
+  width: 100%;
 `;
 
 export const PorgressBar = styled(LinearProgress)<TypeProps>`

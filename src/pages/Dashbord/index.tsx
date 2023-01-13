@@ -44,7 +44,7 @@ export function Dashbord() {
 
   const getPokemon = () => {
     var endpoints = [];
-    for (var i = 1; i < 500; i++) {
+    for (var i = 1; i < 30; i++) {
       endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
     }
     var response = axios
